@@ -46,7 +46,7 @@ From viewing the data visualization, we see that it wouldn't make sense to calcu
 
 Plotting the data in the star dataset:
 
-```{r plot-star}
+```{r plot-star, fig.height=3, fig.width=6}
 star_data <- datasaurus_dozen %>%
     filter(dataset == "star")
 
@@ -65,15 +65,24 @@ Although the star data looks very different from the dino data, x and y have alm
 
 ### Exercise 4
 
-Add your code and narrative to complete this exercise. Use the conventions from the previous exercises to name your chunks and organize your work.
+Plotting the data in the circle dataset:
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+circle_data <- datasaurus_dozen %>%
+    filter(dataset == "circle")
 
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+    geom_point()
 ```
 
-```{r}
+Calculating the correlation between `x` and `y` in this dataset:
 
+```{r cor-circle}
+circle_data %>%
+    summarize(r = cor(x, y))
 ```
+
+Again, this data set has a correlation very similar to the previous data sets.
 
 ### Exercise 5
 
